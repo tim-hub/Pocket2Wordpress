@@ -1,22 +1,8 @@
-# from app import pocket_api as api
-#
-# articles = api.get_articles()
-#
-# import json
-#
-# with open('tests/unit/sample.json', 'w') as file:
-#     file.write(
-#         json.dumps(articles)
-#     )
 
-# from worker import wordpress_api
-#
-# r= wordpress_api.fetch_posts()
-# print(r)
 from datetime import datetime
 
 from utils.read_sample_articles import read_all
-from worker.formatter import format_all
+from worker.formatter import jinja_format
 from worker.pocket_api import get_articles
 from worker.settings import PYTHON_ENV
 from worker.wordpress_api import create_a_post
@@ -32,11 +18,12 @@ def main():
 
     # format content to html
 
-    currentDate = datetime.now().strftime("%Y-%m-%d")
-    title = '''Weekly technology update {}'''.format(currentDate)
-    htmlContent = format_all(articles.items(), title)
-    # print(htmlContent)
+    currentDate = datetime.now().strftime("%d %b, %Y")
+    title = ''' Technology Reading Update (weekly) - {}'''.format(currentDate)
+    # htmlContent = format_all(articles.items(), title)
 
+    htmlContent = jinja_format(articles.items())
+    print(htmlContent)
     # post to wordpress as a new post
 
     create_a_post(
@@ -44,7 +31,16 @@ def main():
             'content': htmlContent,
             'title': title,
             'status': 'publish',
-            'slug': title
+            'slug': title,
+            'excerpt': '''
+{}, this is what I read this week through pocket application.
+This article only contains high quality technology, news, programming, architecture and geek stuff.
+More high quality content is on my blog https://tim.bai.uno. 
+The source code is at https://github.com/tim-hub
+               
+            '''.format(title),
+            'categories': [21],
+            'tags': [22],
         }
     )
 

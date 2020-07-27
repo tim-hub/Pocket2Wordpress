@@ -2,3 +2,4 @@ requests
 python-dotenv
 pytest
 pytest-mock
+Jinja2
