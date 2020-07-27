@@ -1,3 +1,4 @@
+import os
 import random
 from datetime import datetime
 from typing import List, Dict
@@ -30,7 +31,9 @@ class Render:
         return
 
     def jinja_format(self) -> str:
-        template = Template(open('./templates/article.jinja').read())
+        current_path = os.path.abspath(os.path.dirname(__file__))
+        path = os.path.join(current_path, './templates/article.jinja')
+        template = Template(open(path).read())
         return template.render(
             articles=self.articles,
             minutes=self.reading_minutes
