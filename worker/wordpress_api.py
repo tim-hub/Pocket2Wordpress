@@ -1,3 +1,5 @@
+import json
+
 import requests
 from requests.auth import HTTPBasicAuth
 
@@ -11,8 +13,9 @@ POSTS_URL = '{}/wp-json/wp/v2/posts'.format(WP_URL)
 
 
 def create_a_post(data):
+    print(json.dumps(data))
     resp = requests.post(POSTS_URL, data=data, auth=HTTPBasicAuth(WP_USER, WP_APP_PWD))
-    if resp.status_code == 200:
+    if resp.status_code == 201 or resp.status_code == 200:
         return resp.json()
     else:
         raise Exception('Cannot create an article')
