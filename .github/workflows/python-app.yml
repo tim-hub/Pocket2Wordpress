@@ -4,11 +4,11 @@
 name: Python application
 
 on:
+  #  remove push todo
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-  schedule:    
+  schedule:
+    # every friday
     - cron: "0 0 * * 5"
 
 jobs:
@@ -27,12 +27,30 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f app/requirements.txt ]; then pip install -r app/requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+#    - name: Lint with flake8
+#      run: |
+#        # stop the build if there are Python syntax errors or undefined names
+#        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest tests
+      env:
+        PYTHON_ENV: test
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        WP_URL: ${{ secrets.WP_URL }}
+        WP_USER: ${{ secrets.WP_USER }}
+        WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+    - name: run the cli app
+      run: |
+        python cli.py
+      env:
+        PYTHON_ENV: CI
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        WP_URL: ${{ secrets.WP_URL }}
+        WP_USER: ${{ secrets.WP_USER }}
+        WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+#        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

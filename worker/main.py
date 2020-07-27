@@ -11,7 +11,7 @@ def main():
         articles = read_all()
 
     else:
-        articles = get_articles()
+        articles = get_articles(500)
 
     # format content to html and get post body
 

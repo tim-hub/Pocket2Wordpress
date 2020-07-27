@@ -21,12 +21,8 @@ class Render:
         self.set_image()
 
     def set_excerpt(self):
-
-        print(self.articles)
         part1 = self.articles[0][1]['excerpt'] if self.articles[0][1]['excerpt'] else ''
-
         part2 = self.articles[-1][1]['excerpt'] if self.articles[-1][1]['excerpt'] else ''
-
         self.excerpt = part1+part2
 
     # set image not work yet todo
