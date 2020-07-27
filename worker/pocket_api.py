@@ -2,7 +2,7 @@ import datetime
 
 import requests
 
-from app.settings import POCKET_URL, ACCESS_TOKEN, CONSUMER_KEY
+from worker.settings import POCKET_URL, ACCESS_TOKEN, CONSUMER_KEY
 
 from typing import List
 

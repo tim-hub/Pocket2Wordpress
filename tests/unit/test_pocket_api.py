@@ -1,4 +1,4 @@
-from app import pocket_api as api
+from worker import pocket_api as api
 from utils.read_sample_articles import read_all
 
 articles = read_all()

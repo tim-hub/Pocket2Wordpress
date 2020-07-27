@@ -1,6 +1,6 @@
 import json
 
-from app import pocket_api as api
+from worker import pocket_api as api
 
 articles = api.get_articles()
 
