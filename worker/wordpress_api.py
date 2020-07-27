@@ -17,7 +17,7 @@ def create_a_post(data):
     if resp.status_code == 201 or resp.status_code == 200:
         return resp.json()
     else:
-        print(json.dumps(data))
+        print(resp.json())
         raise Exception('Cannot create an article')
 
 

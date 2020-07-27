@@ -43,6 +43,8 @@ jobs:
         WP_URL: ${{ secrets.WP_URL }}
         WP_USER: ${{ secrets.WP_USER }}
         WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+        WP_CAT_ID: ${{ secrets.WP_CAT_ID }}
+        WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
     - name: run the cli app
       run: |
         python cli.py
@@ -53,4 +55,6 @@ jobs:
         WP_URL: ${{ secrets.WP_URL }}
         WP_USER: ${{ secrets.WP_USER }}
         WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+        WP_CAT_ID: ${{ secrets.WP_CAT_ID }}
+        WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
 #        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
