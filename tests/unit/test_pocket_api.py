@@ -1,13 +1,7 @@
-import json
-import os
-
 from app import pocket_api as api
+from utils.read_sample_articles import read_all
 
-current_path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(current_path, "../articles_sample.json")
-
-with open(path, 'r') as file:
-    articles = json.load(file)
+articles = read_all()
 
 
 def test_lambda_handler():

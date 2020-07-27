@@ -13,3 +13,6 @@ WP_USER = os.environ.get('WP_USER', 'a wp user')
 # wordpress plugin is required on wordpress side
 # https://wordpress.org/plugins/application-passwords/
 WP_APP_PWD = os.environ.get('WP_APP_PWD', 'a wp application password')
+
+
+PYTHON_ENV = os.environ.get('PYTHON_ENV', 'development')

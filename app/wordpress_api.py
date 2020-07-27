@@ -15,7 +15,7 @@ def create_a_post(data):
     if resp.status_code == 200:
         return resp.json()
     else:
-        raise Exception('Cannot fetch articles from wordpress')
+        raise Exception('Cannot create an article')
 
 
 def fetch_posts():
