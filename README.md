@@ -37,5 +37,6 @@ Two ways:
 - [ ] split read and unread
 - [ ] enable flake8 and clean up
 - [ ] add bing daily image
+- [ ] support hacker news api too
 
 
