@@ -5,8 +5,8 @@ name: Python application
 
 on:
   #  remove push todo
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
   schedule:
     # every friday
     - cron: "0 0 * * 5"

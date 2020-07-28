@@ -11,3 +11,8 @@ Two ways:
 ## Development
 - [AWS SAM get started/contributing](./CONTRIBUTING.md)
 - [License](./LICENSE)
+
+### todo weekly
+
+- [ ] split read and unread
+- [ ] enable flake8 and clean up
