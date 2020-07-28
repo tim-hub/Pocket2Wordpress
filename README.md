@@ -1,3 +1,5 @@
+![Python application](https://github.com/tim-hub/Pocket2Wordpress/workflows/Python%20application/badge.svg)
+
 A small personal tool to post articles from pocket to wordpress
 
 ## Deploy
