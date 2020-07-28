@@ -1,6 +1,7 @@
 import json
 
 # import requests
+from worker.main import main
 
 
 def lambda_handler(event, context):
@@ -33,10 +34,12 @@ def lambda_handler(event, context):
 
     #     raise e
 
+    main()
+
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "hello world",
+            "message": "successfully",
             # "location": ip.text.replace("\n", "")
         }),
     }
