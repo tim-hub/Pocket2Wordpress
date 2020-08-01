@@ -22,7 +22,7 @@ jobs:
     - name: Install pipenv
       uses: dschep/install-pipenv-action@v1
     - name: Install dependencies
-      run: pipenv sync && pipenv clean
+      run: pipenv sync -d && pipenv clean && pipenv install -r app/requirements.txt
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
