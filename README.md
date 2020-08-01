@@ -41,7 +41,7 @@ Two ways:
 
 ### todo weekly
 - [ ] split read and unread
-- [ ] enable flake8 and clean up
+- [x] enable flake8 and clean up
 - [ ] add bing daily image
 - [ ] support hacker news api too
 
