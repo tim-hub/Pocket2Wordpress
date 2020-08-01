@@ -2,6 +2,37 @@
 
 A small personal tool to post articles from pocket to wordpress automatically.
 
+
+
+# Getting Started
+**Intergration will be [start weekly](.github/workflows/deploy.yml)**
+
+## Setup Environment Variables
+- copy [.end.default](.env.default) paste as .env
+- set up your env variables there
+    - [get pocket api key](https://getpocket.com/developer/docs/authentication)
+    - [get wp application password](https://wordpress.org/plugins/application-passwords/) not required if generate markdowns
+
+## Run Locally
+- pipenv install -d
+- pipenv run cli.py MD
+    - MD for generating markdown files  (dist folder)
+    - WP will save posts to wordpress
+
+> Lambda Handler `app/app.handler` when you trigger on AWS lambda
+
+
+
+
+
+## Deploy
+
+Two ways:
+- Lambda + CloudWatch
+- Github action cron job
+
+
+
 # About
 
 This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily) 
@@ -22,16 +53,6 @@ This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily)
 2. travis => Github action, which is doing the same job
     - and Lambda+Cloud Watch Cron can be used here too
 3. post post content to wordpress
-
-
-
-# Getting Started
-
-## Deploy
-
-Two ways:
-- Lambda + CloudWatch
-- Github action cron
 
 
 
