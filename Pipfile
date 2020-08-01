@@ -4,8 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flake8 = '*'
+pytest = '*'
+pytest-mock = '*'
 
 [packages]
+# please keep a copy at app/requirements.txt  for SAM compatibility
+requests = '*'
+python-dotenv ='*'
+Jinja2 = '*'
+
 
 [requires]
 python_version = "3.8"
