@@ -1,7 +1,7 @@
-from src.utils import read_all
+from src.utils.read_sample_articles import read_all
 from src.worker.formatter import Render
-from src.worker import get_articles
-from src.worker import PYTHON_ENV
+from src.worker.pocket_api import get_articles
+from src.settings import PYTHON_ENV
 from src.worker.wordpress_api import create_a_post
 
 

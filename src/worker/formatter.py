@@ -5,7 +5,7 @@ from typing import List, Dict
 
 from jinja2 import Template
 
-from src.worker import WP_CAT_ID, WP_TAG_ID
+from src.settings import WP_CAT_ID, WP_TAG_ID
 
 
 class Render:
