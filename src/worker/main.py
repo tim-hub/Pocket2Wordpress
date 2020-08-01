@@ -6,13 +6,17 @@ from src.worker.pocket_api import get_articles
 from src.settings import PYTHON_ENV
 from src.worker.wordpress_api import create_a_post
 
+DIST_PATH = './dist/'
 
-class OutputMode(Enum):
+
+class OutputMode(str, Enum):
     WP = 'WP'
     MD = 'MD'
 
 
-def main(destination: OutputMode = OutputMode.WP):
+def main(destination):
+    print(destination)
+    print(destination == OutputMode.MD)
     # get artciles
     if (PYTHON_ENV == 'development'):
         articles = read_all()
@@ -24,10 +28,25 @@ def main(destination: OutputMode = OutputMode.WP):
 
     render = Render(list(articles.items()))
 
+    md_obj = render.get_content_markdown()
+    file_name = md_obj.get('file_name')
+    content = md_obj.get('content')
+    md_path = DIST_PATH + file_name + '.md'
+    with open(md_path, 'w+') as file:
+        file.write(content)
+
     if (destination == OutputMode.WP):
         # post to wordpress as a new post
-        create_a_post(render.get_wp_post_body())
-    elif (destination == OutputMode.MD):
-        print(render.get_wp_post_body())
+        htmlBody = render.get_wp_post_body()
+        create_a_post(htmlBody)
+    # elif (destination == OutputMode.MD):
+    #     # save markdown locally
+    #     md_obj = render.get_content_markdown()
+    #     file_name = md_obj.get('file_name')
+    #     content = md_obj.get('content')
+    #
+    #     md_path = DIST_PATH + file_name + '.md'
+    #     with open(md_path, 'w') as file:
+    #         file.write(content)
 
     return

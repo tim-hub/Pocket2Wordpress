@@ -70,7 +70,7 @@ def test_lambda_handler(apigw_event, mocker):
 
         assert ret["statusCode"] == 200
         assert "message" in ret["body"]
-        assert data["message"] == "hello world"
+        assert data["message"] == "successfully"
         # assert "location" in data.dict_keys()
     else:
         assert True

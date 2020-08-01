@@ -7,4 +7,5 @@ parser.add_argument('mode', metavar='OutputMode', type=str, default=OutputMode.W
 
 args = parser.parse_args()
 
+print('mode ' + args.mode)
 main(args.mode)

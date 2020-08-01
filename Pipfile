@@ -13,6 +13,7 @@ pytest-mock = '*'
 requests = "*"
 python-dotenv = "*"
 Jinja2 = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.8"
