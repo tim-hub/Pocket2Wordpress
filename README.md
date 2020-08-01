@@ -12,6 +12,9 @@ This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily)
 
 
 ## Pocket2Wordpress
+
+![](https://raw.githubusercontent.com/tim-hub/picgo-pictures-sample2/master/public/images20200728211825.png)
+
 1. Instead of PHP script, Python is used here for 
     - fetch [content from Pocket](https://getpocket.com/developer/)
     - format content and render them to HTML in string
