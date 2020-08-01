@@ -1,0 +1,54 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Deploy
+
+on: [pull_request, push]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install pipenv
+      uses: dschep/install-pipenv-action@v1
+    - name: Install dependencies
+      run: pipenv sync && pipenv clean
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest tests
+      env:
+        PYTHON_ENV: test
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        WP_URL: ${{ secrets.WP_URL }}
+        WP_USER: ${{ secrets.WP_USER }}
+        WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+        WP_CAT_ID: ${{ secrets.WP_CAT_ID }}
+        WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
+    - name: run the cli app
+      run: |
+        python cli.py MD
+      env:
+        PYTHON_ENV: CI
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        WP_URL: ${{ secrets.WP_URL }}
+        WP_USER: ${{ secrets.WP_USER }}
+        WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
+        WP_CAT_ID: ${{ secrets.WP_CAT_ID }}
+        WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
+#        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

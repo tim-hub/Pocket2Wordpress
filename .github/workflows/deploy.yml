@@ -1,12 +1,9 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: Deploy
 
 on:
-  #  remove push todo
-#  push:
-#    branches: [ master ]
   schedule:
     # every friday
     - cron: "0 0 * * 5"
@@ -46,9 +43,9 @@ jobs:
         WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
     - name: run the cli app
       run: |
-        python cli.py
+        python cli.py WP
       env:
-        PYTHON_ENV: CI
+        PYTHON_ENV: production
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
         WP_URL: ${{ secrets.WP_URL }}
@@ -56,4 +53,3 @@ jobs:
         WP_APP_PWD: ${{ secrets.WP_APP_PWD }}
         WP_CAT_ID: ${{ secrets.WP_CAT_ID }}
         WP_TAG_ID: ${{ secrets.WP_TAG_ID }}
-#        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
