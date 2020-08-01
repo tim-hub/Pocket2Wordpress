@@ -21,6 +21,9 @@ This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily)
 3. post post content to wordpress
 
 
+
+# Getting Started
+
 ## Deploy
 
 Two ways:
@@ -30,7 +33,7 @@ Two ways:
 
 
 ## Development
-- [AWS SAM get started/contributing](./CONTRIBUTING.md)
+- [AWS SAM AWS Lambda Function get started/contributing](./CONTRIBUTING.md)
 - [License](./LICENSE)
 
 ### todo weekly
