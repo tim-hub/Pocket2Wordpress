@@ -44,7 +44,7 @@ jobs:
           mkdir dist
           pipenv run python cli.py MD
         env:
-          PYTHON_ENV: Development
+          PYTHON_ENV: development
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           WP_URL: ${{ secrets.WP_URL }}
