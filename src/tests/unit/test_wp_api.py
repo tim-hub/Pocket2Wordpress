@@ -1,4 +1,4 @@
-from worker import wordpress_api as api
+from src.worker import wordpress_api as api
 
 
 def test_fetch():

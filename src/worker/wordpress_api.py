@@ -1,9 +1,7 @@
-import json
-
 import requests
 from requests.auth import HTTPBasicAuth
 
-from worker.settings import WP_URL, WP_APP_PWD, WP_USER
+from src.worker import WP_URL, WP_APP_PWD, WP_USER
 
 # wordpress api posts
 # https://developer.wordpress.org/rest-api/reference/posts/#create-a-post

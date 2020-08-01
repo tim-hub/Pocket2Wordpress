@@ -1,5 +1,5 @@
-from worker import pocket_api as api
-from utils.read_sample_articles import read_all
+from src.worker import pocket_api as api
+from src.utils import read_all
 
 articles = read_all()
 

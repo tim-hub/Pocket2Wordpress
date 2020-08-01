@@ -1,7 +1,7 @@
 import json
 
 # import requests
-from worker.main import main
+from src.worker import main
 
 
 def lambda_handler(event, context):

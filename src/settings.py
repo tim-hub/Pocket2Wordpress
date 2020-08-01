@@ -16,5 +16,4 @@ WP_APP_PWD = os.environ.get('WP_APP_PWD', 'a wp application password')
 WP_CAT_ID = os.environ.get('WP_CAT_ID', 0)
 WP_TAG_ID = os.environ.get('WP_TAG_ID', 0)
 
-
 PYTHON_ENV = os.environ.get('PYTHON_ENV', 'development')

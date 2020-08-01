@@ -3,7 +3,7 @@ import json
 import pytest
 
 from app import app
-from worker.settings import PYTHON_ENV
+from src.worker import PYTHON_ENV
 
 
 @pytest.fixture()

@@ -3,7 +3,7 @@ from typing import List
 
 import requests
 
-from worker.settings import POCKET_URL, ACCESS_TOKEN, CONSUMER_KEY
+from src.worker import POCKET_URL, ACCESS_TOKEN, CONSUMER_KEY
 
 
 def get_articles(days: int = 7) -> List:
