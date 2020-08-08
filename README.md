@@ -1,4 +1,4 @@
-![Python application](https://github.com/tim-hub/Pocket2Wordpress/workflows/Python%20application/badge.svg)
+![Deploy](https://github.com/tim-hub/Pocket2Wordpress/workflows/Deploy/badge.svg)![CI](https://github.com/tim-hub/Pocket2Wordpress/workflows/CI/badge.svg)
 
 A small personal tool to post articles from pocket to wordpress automatically.
 
