@@ -47,7 +47,7 @@ jobs:
           mkdir dist
           pipenv run python cli.py WP
         env:
-          PYTHON_ENV: CI
+          PYTHON_ENV: production
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           WP_URL: ${{ secrets.WP_URL }}
