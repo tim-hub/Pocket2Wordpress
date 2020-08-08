@@ -2,8 +2,11 @@ import os
 import random
 from datetime import datetime
 from typing import List, Dict
+from uuid import uuid4
 
 from jinja2 import Template
+
+# from markdown import markdown
 
 from src.settings import WP_CAT_ID, WP_TAG_ID
 
@@ -27,9 +30,20 @@ class Render:
     def set_image(self):
         return
 
-    def jinja_format(self) -> str:
+    def html_format(self) -> str:
         current_path = os.path.abspath(os.path.dirname(__file__))
         path = os.path.join(current_path, './templates/article.jinja')
+        template = Template(open(path).read())
+        return template.render(
+            articles=self.articles,
+            minutes=self.reading_minutes
+        )
+        # # todo use this instead
+        # return markdown(self.md_format())
+
+    def md_format(self) -> str:
+        current_path = os.path.abspath(os.path.dirname(__file__))
+        path = os.path.join(current_path, './templates/markdown.jinja')
         template = Template(open(path).read())
         return template.render(
             articles=self.articles,
@@ -38,7 +52,7 @@ class Render:
 
     def get_wp_post_body(self) -> Dict:
         title = self.title
-        htmlContent = self.jinja_format()
+        htmlContent = self.html_format()
         # print(htmlContent)
 
         return {
@@ -55,4 +69,11 @@ class Render:
             'categories': [WP_CAT_ID],
             'tags': [WP_TAG_ID],
 
+        }
+
+    def get_content_markdown(self) -> Dict:
+        return {
+            'title': self.title,
+            'content': self.md_format(),
+            'file_name': self.title + str(uuid4())
         }

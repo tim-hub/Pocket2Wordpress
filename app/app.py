@@ -1,7 +1,7 @@
 import json
 
 # import requests
-from src.worker import main
+from src.worker.main import main
 
 
 def lambda_handler(event, context):
@@ -34,7 +34,7 @@ def lambda_handler(event, context):
 
     #     raise e
 
-    main()
+    main('WP')
 
     return {
         "statusCode": 200,

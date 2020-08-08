@@ -2,6 +2,37 @@
 
 A small personal tool to post articles from pocket to wordpress automatically.
 
+
+
+# Getting Started
+**Intergration will be [start weekly](.github/workflows/deploy.yml)**
+
+## Setup Environment Variables
+- copy [.end.default](.env.default) paste as .env
+- set up your env variables there
+    - [get pocket api key](https://getpocket.com/developer/docs/authentication)
+    - [get wp application password](https://wordpress.org/plugins/application-passwords/) not required if generate markdowns
+
+## Run Locally
+- pipenv install -d
+- pipenv run cli.py MD
+    - MD for generating markdown files  (dist folder)
+    - WP will save posts to wordpress
+
+> Lambda Handler `app/app.handler` when you trigger on AWS lambda
+
+
+
+
+
+## Deploy
+
+Two ways:
+- Lambda + CloudWatch
+- Github action cron job
+
+
+
 # About
 
 This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily) 
@@ -25,23 +56,13 @@ This project is inspired by [Mabbs](https://github.com/Mabbs/MayxDaily)
 
 
 
-# Getting Started
-
-## Deploy
-
-Two ways:
-- Lambda + CloudWatch
-- Github action cron
-
-
-
 ## Development
 - [AWS SAM AWS Lambda Function get started/contributing](./CONTRIBUTING.md)
 - [License](./LICENSE)
 
 ### todo weekly
 - [ ] split read and unread
-- [ ] enable flake8 and clean up
+- [x] enable flake8 and clean up
 - [ ] add bing daily image
 - [ ] support hacker news api too
 

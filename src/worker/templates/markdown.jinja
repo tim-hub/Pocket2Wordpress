@@ -1,0 +1,15 @@
+<small> Continue reading takes about {{ minutes }} minutes </small>
+    {% for article in articles %}
+        {% if 'resolved_title' in article[1] and article[1].lang == 'en' %}
+## {{ loop.index }}. <a rel="nofollow" target="_blank" href="{{ article[1].resolved_url }}">{{ article[1].resolved_title }}</a>
+
+                    {% if 'top_image_url' in article[1] %}
+![{{ article[1].resolved_title }}]({{ article[1].top_image_url }})
+                    {% endif %}
+{{ article[1].excerpt }}
+
+---
+        {% endif %}
+    {% endfor %}
+
+*Thanks for your reading, save as your bookmark if you like my website.*
