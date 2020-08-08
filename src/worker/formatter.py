@@ -15,7 +15,7 @@ class Render:
     def __init__(self, articles: List):
         self.articles = articles
         currentDate = datetime.now().strftime("%d %b, %Y")
-        self.title = '''Technology Reading Update (weekly) - {}'''.format(currentDate)
+        self.title = '''Weekly Report - Technology Reading Update - {}'''.format(currentDate)
         self.reading_minutes = random.choice(list(range(3, 8, 1)))
 
         self.set_excerpt()

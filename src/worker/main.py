@@ -28,6 +28,7 @@ def main(destination):
 
     render = Render(list(articles.items()))
 
+    # save as markdowns
     md_obj = render.get_content_markdown()
     file_name = md_obj.get('file_name')
     content = md_obj.get('content')
@@ -39,14 +40,5 @@ def main(destination):
         # post to wordpress as a new post
         htmlBody = render.get_wp_post_body()
         create_a_post(htmlBody)
-    # elif (destination == OutputMode.MD):
-    #     # save markdown locally
-    #     md_obj = render.get_content_markdown()
-    #     file_name = md_obj.get('file_name')
-    #     content = md_obj.get('content')
-    #
-    #     md_path = DIST_PATH + file_name + '.md'
-    #     with open(md_path, 'w') as file:
-    #         file.write(content)
 
     return
